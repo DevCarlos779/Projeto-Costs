@@ -1,16 +1,6 @@
 {
   "projects": [
-    {
-      "id": "8206",
-      "budget": "10000",
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": [],
-      "name": "teste"
-    }
+    
   ],
   "categories": [
     {

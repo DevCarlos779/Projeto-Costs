@@ -12,6 +12,7 @@ import styles from "./Projects.module.css"
 
 function Projects() {
 
+    const [projectMessage, setProjectMessage] = useState('');
     const [removeLoading, setRemoveLoading] = useState(false);
     const [projects, setProjects] = useState([]);
 
@@ -40,16 +41,16 @@ function Projects() {
     }, [])
 
     function removeProject(id) {
-        fetch('http://localhost:5000/projects/' + ${id}, {
-            method: 'GET',
+        fetch(`http://localhost:5000/projects/${id}`, {
+            method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
             },
         })
          .then((resp) => resp.json())
-         .then((data) => {
-            setRemoveLoading(true);
-            setProjects(data);
+         .then(() => {           
+            setProjects(projects.filter((project) => project.id !== id));
+            setProjectMessage('Projeto removido com sucesso!');
          })
          .catch((err) => console.log(err))
     }
@@ -63,6 +64,9 @@ function Projects() {
             {message && (
                 <Message msg={message} type="success"/>
             )}
+            {projectMessage && (
+                <Message msg={projectMessage} type="success"/>
+            )}
 
             <Container customClass="start">
                 {projects.length > 0 && 
@@ -73,6 +77,7 @@ function Projects() {
                             budget={project.budget}
                             category={project.category.name}
                             key={project.id}
+                            handleRemove={removeProject}
 
                         />
                     ))

@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Container from '../layout/Container'
 import Loading from '../layout/Loading';
 import ProjectForm from '../project/ProjectForm'
+import Message from '../layout/Message';
+
 
 import styles from './Project.module.css'
 
@@ -13,6 +15,9 @@ function Project() {
 
     const [project, setProject] = useState([]);
     const [showProjectForm, setShowProjectForm] = useState(false);
+    const [message, setMessage] = useState();
+    const [typeMessage, setTypeMessage] = useState();
+
 
     useEffect(() => {
 
@@ -36,7 +41,9 @@ function Project() {
 
         
         if(project.budget < project.cost) {
-            //mensagem
+            setMessage("O orçamento não pode ser menor que o custo do projeto");
+            setTypeMessage("error");
+            return false;
         }
 
         fetch(`http://localhost:5000/projects/${project.id}`, {
@@ -49,7 +56,10 @@ function Project() {
             .then((resp) => resp.json())
             .then((data) => {
                 setProject(data)
-                setShowProjectForm(false)
+                setShowProjectForm(false);
+                setMessage("Projeto Atualizado");
+                setTypeMessage("success");
+                
             })
             .catch((err) => console.log(err))
 
@@ -65,6 +75,7 @@ function Project() {
             {project.name ? (
                 <div className={styles.project_details}>
                     <Container customClass="column">
+                        {message && <Message msg={message} type={typeMessage} />}
                         <div className={styles.details_container}>
                             <h1>Projeto: {project.name}</h1>
                             <button className={styles.btn} onClick={toggleProjectForm}>

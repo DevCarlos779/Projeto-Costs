@@ -10,7 +10,6 @@ function ProjectForm({ btnText, handleSubmit, projectData }) {
 
     const [categories, setCategories] = useState([]);
     const [project, setProject] = useState(projectData || []);
-
     
 
     useEffect(() => {

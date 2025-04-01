@@ -3,10 +3,10 @@
     {
       "id": "b32f",
       "name": "Projeto Atualizado",
-      "budget": "25000",
+      "budget": "20000",
       "category": {
-        "id": "1",
-        "name": "Infra"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
       "cost": 0,
       "services": []

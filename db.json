@@ -2,8 +2,8 @@
   "projects": [
     {
       "id": "b32f",
-      "name": "fsdfsd",
-      "budget": "234234",
+      "name": "Projeto Atualizado",
+      "budget": "25000",
       "category": {
         "id": "1",
         "name": "Infra"

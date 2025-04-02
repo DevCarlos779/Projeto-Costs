@@ -8,8 +8,21 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 200,
+      "services": [
+        {
+          "name": "caca",
+          "cost": "100",
+          "description": "asdasd",
+          "id": "6a9e51f3-6df1-4456-9a58-42d903488706"
+        },
+        {
+          "name": "caca 2",
+          "cost": "100",
+          "description": "asdasd",
+          "id": "8b0e4933-e371-4e38-b0b0-fc9ac4ce715d"
+        }
+      ]
     }
   ],
   "categories": [
